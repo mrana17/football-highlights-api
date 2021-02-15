@@ -1,12 +1,6 @@
 import { footballVideosAPI } from "../../utils/footballAPI";
 import { createElement } from "../../utils/createElement";
 
-// export function createFootball() {
-//   return createElement("div", {
-//     className: football,
-//   } getFootballVideos();
-// }
-
 export function createCard({
   title,
   side1,

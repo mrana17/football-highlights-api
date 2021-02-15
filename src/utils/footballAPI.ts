@@ -31,11 +31,19 @@ export async function getFootballVideo() {
   return result;
 }
 
+// export async function getFootballVideos() {
+//   const response = await fetch(`https://www.scorebat.com/video-api/v1/`);
+//   if (!response.ok) {
+//     return [];
+//   }
+//   const result = (await response.json()) as footballVideosAPI[];
+//   return result;
+// }
+
 export async function getFootballVideos() {
-  const response = await fetch(`https://www.scorebat.com/video-api/v1/`);
-  if (!response.ok) {
-    return [];
-  }
+  const response = await fetch(`https://www.scorebat.com/video-api/v1/`, {});
   const result = (await response.json()) as footballVideosAPI;
-  return result;
+  console.log(result);
+  const allVideos = result;
+  return allVideos;
 }
