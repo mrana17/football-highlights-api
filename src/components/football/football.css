@@ -1,0 +1,56 @@
+.card {
+  display: grid;
+  background-color: transparent;
+  perspective: 1000px;
+}
+
+.card__inner {
+  position: relative;
+  text-align: center;
+  background-color: grey;
+  border-radius: 1rem;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.card:hover .card__inner {
+  transform: rotateY(180deg);
+}
+
+.card__front,
+.card__back {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.card__front {
+  border-radius: 1rem;
+  text-align: center;
+}
+
+.card__back {
+  position: absolute;
+  transform: rotateY(180deg);
+  width: 100%;
+  height: 100%;
+}
+
+.card__portrait {
+  border-radius: 1rem;
+}
+
+.card__name {
+  color: lightskyblue;
+}
+
+.card__status {
+  color: lightsalmon;
+}
+
+.card__species {
+  color: lightgreen;
+}
+
+.card__origin {
+  color: lightgrey;
+}
