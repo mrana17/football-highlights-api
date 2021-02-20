@@ -40,36 +40,36 @@ export const Matches = () =>
       "<div style='width:100%;height:0px;position:relative;padding-bottom:calc(56.25% + 335px);' class='_scorebatEmbeddedPlayerW_'><iframe src='https://www.scorebat.com/embed/g/960725/?s=2' frameborder='0' width='560' height='650' allowfullscreen allow='autoplay; fullscreen' style='width:100%;height:100%;position:absolute;left:0px;top:0px;overflow:hidden;' class='_scorebatEmbeddedPlayer_'></iframe></div>",
   });
 
-export const FootballVideosFromAPI = (args, { loaded: { football } }) => {
-  console.log(football);
-  return createCard(football);
+// export const FootballVideosFromAPI = (args, { loaded: { football } }) => {
+//   console.log(football);
+//   return createCard(football);
+// };
+
+// FootballVideosFromAPI.loaders = [
+//   async () => ({
+//     football: await getFootballVideos(),
+//   }),
+// ];
+
+type FootballVideosFromAPIProps = {
+  loaded: {
+    allVideos: footballVideosAPI[];
+  };
+};
+
+export const FootballVideosFromAPI = (
+  args,
+  { loaded: { allVideos } }: FootballVideosFromAPIProps
+) => {
+  const container = createElement("div", {
+    className: "container",
+    childs: allVideos.map((allVideos) => createCard(allVideos)),
+  });
+  return container;
 };
 
 FootballVideosFromAPI.loaders = [
   async () => ({
-    football: await getFootballVideos(),
+    allVideos: await getFootballVideos(),
   }),
 ];
-
-// type FootballVideosFromAPI = {
-//   loaded: {
-//     footballVideos: footballVideosAPI[];
-//   };
-// };
-
-// export const FootballVideosFromAPI = (
-//   args,
-//   { loaded: { footballVideos } }: FootballVideosFromAPIProps
-// ) => {
-//   const container = createElement("div", {
-//     className: "container",
-//     childs: footballVideos.map((character) => createCard(character)),
-//   });
-//   return container;
-// };
-
-// getFootballVideos.loaders = [
-//   async () => ({
-//     characters: await getFootballVideos(),
-//   }),
-// ];
